@@ -14,7 +14,7 @@ const ResumeUi = () => {
             <h2>Contact</h2>
             <ul>
               <li>
-                <span>Address</span>: Rivers, Nigeria 500927
+                <span>Address</span>: Rivers, World 500927
               </li>
               <li>
                 <span>Phone</span>: +234900000000
@@ -49,6 +49,9 @@ const ResumeUi = () => {
               <li>React</li>
               <li>MongoDB</li>
               <li>Express.js</li>
+              <li>Node.js</li>
+              <li>Vue.js</li>
+              <li>Git</li>
             </ul>
           </div>
         </section>
@@ -56,11 +59,79 @@ const ResumeUi = () => {
           <div className="summary">
             <h2>Professional summary</h2>
             <p>
-              thanks for the post, I got the same issue when changed api call
+              Thanks for the post, I got the same issue when changed api call
               and related infrastructure and my code was suddenly spitting a
               date object into the jsx instead of the previous date formatted
               string. The error message given wasn’t very helpful at the
-              beginning, this helped me to track it down!
+              beginning!
+            </p>
+          </div>
+          <div className="work-history">
+            <h2>Work history</h2>
+            <div>
+              <p>
+                <span>Front End Developer,</span> 12/2019 - 12/2020 <br />
+                <span>TechSoft Inc</span>- Port Harcourt, Rivers{" "}
+              </p>
+              <ul>
+                <li>
+                  survived not only five centuries, but also the leap into
+                  electronic typesetting, remaining essentially
+                </li>
+                <li>
+                  Contrary to popular belief, Lorem Ipsum is not simply random
+                  text. It has roots in a
+                </li>
+                <li>
+                  The standard chunk of Lorem Ipsum used since the 1500s is
+                </li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                <span>Front End Developer,</span> 12/2019 - 12/2020 <br />
+                <span>TechSoft Inc</span>- Port Harcourt, Rivers{" "}
+              </p>
+              <ul>
+                <li>
+                  survived not only five centuries, but also the leap into
+                  electronic typesetting, remaining essentially
+                </li>
+                <li>
+                  Contrary to popular belief, Lorem Ipsum is not simply random
+                  text. It has roots in a
+                </li>
+                <li>
+                  The standard chunk of Lorem Ipsum used since the 1500s is
+                </li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                <span>Front End Developer,</span> 12/2019 - 2020 <br />
+                <span>TechSoft Inc</span>- Port Harcourt, Rivers{" "}
+              </p>
+              <ul>
+                <li>
+                  survived not only five centuries, but also the leap into
+                  electronic typesetting, remaining essentially
+                </li>
+                <li>
+                  Contrary to popular belief, Lorem Ipsum is not simply random
+                  text. It has roots in a
+                </li>
+                <li>
+                  The standard chunk of Lorem Ipsum used since the 1500s is
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="education">
+            <h2>education</h2>
+            <p>
+              <span>Bachelor of Arts: </span>Fine Arts, 12/2019 - 2020
+              <br />
+              <span>TechSoft Academy</span>- Port Harcourt, Rivers{" "}
             </p>
           </div>
         </section>
@@ -73,7 +144,7 @@ export default ResumeUi;
 
 const StyledContainer = styled.div`
   width: 62.5em;
-  margin: 1em auto;
+  margin: 2em auto;
   background: #e5e9eb;
 
   .header-container {
@@ -83,6 +154,7 @@ const StyledContainer = styled.div`
     padding: 1em 0;
     color: #eef0f1 !important;
     margin-bottom: 3em;
+    font-family: "Roboto Slab", serif;
 
     .name {
       font-size: 3.5em;
@@ -97,13 +169,17 @@ const StyledContainer = styled.div`
     width: 100%;
     padding: 0 0 0 2em;
     display: flex;
+    font-family: "Oswald", sans-serif;
 
     h2 {
       text-transform: uppercase;
       font-weight: bold;
-      padding: 1em 0;
+      padding: 1em 0 0 0;
     }
 
+    span {
+      font-weight: bold;
+    }
     .left-pane {
       width: 35%;
       /* h2 {
@@ -118,9 +194,10 @@ const StyledContainer = styled.div`
         li {
           list-style: none;
         }
-        span {
-          font-weight: bold;
-        }
+      }
+      .links a {
+        text-decoration: none;
+        color: #333;
       }
     }
 
@@ -128,6 +205,13 @@ const StyledContainer = styled.div`
       background: #fff;
       width: 65%;
       padding: 0 2em;
+
+      p {
+        padding: 0 0 0 2em;
+      }
+      ul {
+        padding: 0 0 0 3.2em;
+      }
     }
   }
 `;
