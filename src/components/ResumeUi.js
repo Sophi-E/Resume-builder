@@ -5,7 +5,7 @@ const ResumeUi = () => {
   return (
     <StyledContainer>
       <div className="header-container">
-        <h1 className="name">John doe</h1>
+        <p className="name">John doe</p>
         <p className="title">Frontend Developer</p>
       </div>
       <main>
@@ -143,7 +143,7 @@ const ResumeUi = () => {
 export default ResumeUi;
 
 const StyledContainer = styled.div`
-  width: 62.5em;
+  width: 60em;
   margin: 2em auto;
   background: #e5e9eb;
 
@@ -158,10 +158,11 @@ const StyledContainer = styled.div`
 
     .name {
       font-size: 3.5em;
+      margin-bottom: 0;
     }
 
     .title {
-      font-size: 1.3em;
+      /* font-size: 1.3em; */
     }
   }
 
@@ -169,6 +170,9 @@ const StyledContainer = styled.div`
     width: 100%;
     padding: 0 0 0 2em;
     display: flex;
+    @media (max-width: 760px) {
+      flex-direction: column;
+    }
     font-family: "Oswald", sans-serif;
 
     h2 {
