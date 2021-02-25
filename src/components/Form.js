@@ -1,148 +1,291 @@
 import React, { useState } from "react";
-import { Form, Input, Tooltip, Select, Row, Col, Button } from "antd";
+import styled from "@emotion/styled";
+import Input from "./Input";
 
-const { Option } = Select;
-
-const formItemLayout = {
-  labelCol: {
-    xs: {
-      span: 24,
-    },
-    sm: {
-      span: 8,
-    },
-  },
-  wrapperCol: {
-    xs: {
-      span: 24,
-    },
-    sm: {
-      span: 16,
-    },
-  },
+const initialValues = {
+  fullName: "",
+  title: "",
+  address: "",
+  phone: "",
+  email: "",
 };
-const tailFormItemLayout = {
-  wrapperCol: {
-    xs: {
-      span: 24,
-      offset: 0,
-    },
-    sm: {
-      span: 16,
-      offset: 8,
-    },
-  },
-};
-
 const FormFields = () => {
-  const [form] = Form.useForm();
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState(initialValues);
 
-  const onFinish = (values) => {
-    setFormData(values);
-    //   console.log("Received values of form: ", values);
+  const onChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const onFinish = (e) => {
+    e.preventDefault();
+
     console.log(formData);
   };
 
-  const prefixSelector = (
-    <Form.Item name="prefix" noStyle>
-      <Select
-        style={{
-          width: 90,
-        }}
-      >
-        <Option value="+234">+234</Option>
-        <Option value="1">+1</Option>
-      </Select>
-    </Form.Item>
-  );
-
   return (
-    <>
-      <Form
-        {...formItemLayout}
-        form={form}
-        name="register"
-        onFinish={onFinish}
-        initialValues={{
-          prefix: "+234",
-        }}
-        scrollToFirstError
-      >
-        <Form.Item
-          name="fullname"
-          label="Full Name"
-          rules={[
-            {
-              required: true,
-              message: "Please input your name!",
-            },
-          ]}
-          hasFeedback
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
+    <Pane>
+      <form onSubmit={onFinish} className="form">
+        <Input
+          label="Name"
+          type="text"
+          placeholder="Enter your name"
+          name="fullName"
+          onChange={onChange}
+        />
+        <Input
+          label="Title"
+          type="text"
+          placeholder="Frontend Developer"
           name="title"
-          label="Job Title"
-          rules={[
-            {
-              required: true,
-              message: "Please input your job title!",
-            },
-          ]}
-          hasFeedback
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          name="email"
-          label="E-mail"
-          rules={[
-            {
-              type: "email",
-              message: "The input is not valid E-mail!",
-            },
-            {
-              required: true,
-              message: "Please input your E-mail!",
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-
-        <Form.Item
+          onChange={onChange}
+        />
+        <Input
+          label="Address"
+          type="text"
+          placeholder="10, street, Lagos"
+          name="address"
+          onChange={onChange}
+        />
+        <Input
+          label="Phone"
+          type="text"
+          placeholder="+2340000000"
           name="phone"
-          label="Phone Number"
-          rules={[
-            {
-              required: true,
-              message: "Please input your phone number!",
-            },
-          ]}
-        >
-          <Input
-            addonBefore={prefixSelector}
-            style={{
-              width: "100%",
-            }}
-          />
-        </Form.Item>
+          onChange={onChange}
+        />
+        <Input
+          label="Email"
+          type="email"
+          placeholder="johndoe@test.com"
+          name="email"
+          onChange={onChange}
+        />
+        <button type="submit">Submit</button>
+      </form>
 
-        <Form.Item {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit">
-            Submit
-          </Button>
-        </Form.Item>
-      </Form>
+      <StyledContainer>
+        <div className="header-container">
+          <p className="name">{formData.fullName}</p>
+          <p className="title">{formData.title}</p>
+        </div>
+        <main>
+          <section className="left-pane">
+            <div className="contact">
+              <h2>Contact</h2>
+              <ul>
+                <li>
+                  <span>Address</span>: {formData.address}
+                </li>
+                <li>
+                  <span>Phone</span>: {formData.phone}
+                </li>
+                <li>
+                  <span>Email</span>: {formData.email}
+                </li>
+              </ul>
+            </div>
 
-      <p>{formData.fullname}</p>
-      <p>{formData.title}</p>
-      <p>{formData.email}</p>
-      <p>{formData.phone}</p>
-    </>
+            <div className="links">
+              <h2>Profile Links</h2>
+              <ul>
+                <li>
+                  <a href="www.github.com">https://github.com/john-doe</a>
+                </li>
+                <li>
+                  <a href="www.linkedin.com">
+                    https://linkedin.com/in/john-doe
+                  </a>
+                </li>
+                <li>
+                  <a href="!#">https://jondoe.com</a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="Skills">
+              <h2>Skills</h2>
+              <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Javascript</li>
+                <li>React</li>
+                <li>MongoDB</li>
+                <li>Express.js</li>
+                <li>Node.js</li>
+                <li>Vue.js</li>
+                <li>Git</li>
+              </ul>
+            </div>
+          </section>
+          <section className="right-pane">
+            <div className="summary">
+              <h2>Professional summary</h2>
+              <p>
+                Thanks for the post, I got the same issue when changed api call
+                and related infrastructure and my code was suddenly spitting a
+                date object into the jsx instead of the previous date formatted
+                string. The error message given wasn’t very helpful at the
+                beginning!
+              </p>
+            </div>
+            <div className="work-history">
+              <h2>Work history</h2>
+              <div>
+                <p>
+                  <span>Front End Developer,</span> 12/2019 - 12/2020 <br />
+                  <span>TechSoft Inc</span>- Port Harcourt, Rivers{" "}
+                </p>
+                <ul>
+                  <li>
+                    survived not only five centuries, but also the leap into
+                    electronic typesetting, remaining essentially
+                  </li>
+                  <li>
+                    Contrary to popular belief, Lorem Ipsum is not simply random
+                    text. It has roots in a
+                  </li>
+                  <li>
+                    The standard chunk of Lorem Ipsum used since the 1500s is
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <p>
+                  <span>Front End Developer,</span> 12/2019 - 12/2020 <br />
+                  <span>TechSoft Inc</span>- Port Harcourt, Rivers{" "}
+                </p>
+                <ul>
+                  <li>
+                    survived not only five centuries, but also the leap into
+                    electronic typesetting, remaining essentially
+                  </li>
+                  <li>
+                    Contrary to popular belief, Lorem Ipsum is not simply random
+                    text. It has roots in a
+                  </li>
+                  <li>
+                    The standard chunk of Lorem Ipsum used since the 1500s is
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <p>
+                  <span>Front End Developer,</span> 12/2019 - 2020 <br />
+                  <span>TechSoft Inc</span>- Port Harcourt, Rivers{" "}
+                </p>
+                <ul>
+                  <li>
+                    survived not only five centuries, but also the leap into
+                    electronic typesetting, remaining essentially
+                  </li>
+                  <li>
+                    Contrary to popular belief, Lorem Ipsum is not simply random
+                    text. It has roots in a
+                  </li>
+                  <li>
+                    The standard chunk of Lorem Ipsum used since the 1500s is
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="education">
+              <h2>education</h2>
+              <p>
+                <span>Bachelor of Arts: </span>Fine Arts, 12/2019 - 2020
+                <br />
+                <span>TechSoft Academy</span>- Port Harcourt, Rivers{" "}
+              </p>
+            </div>
+          </section>
+        </main>
+      </StyledContainer>
+      {/* )} */}
+    </Pane>
   );
 };
 
 export default FormFields;
+const Pane = styled.div`
+  display: flex;
+  /* justify-content: space-between; */
+  .form {
+    width: 50%;
+    display: flex;
+  }
+`;
+const StyledContainer = styled.div`
+  width: 60em;
+  /* margin: 2em auto; */
+  background: #e5e9eb;
+
+  .header-container {
+    background-color: #576d7b;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 1em 0;
+    color: #eef0f1 !important;
+    margin-bottom: 3em;
+    font-family: "Roboto Slab", serif;
+
+    .name {
+      font-size: 3.5em;
+      margin-bottom: 0;
+    }
+
+    .title {
+      /* font-size: 1.3em; */
+    }
+  }
+
+  main {
+    width: 100%;
+    padding: 0 0 0 2em;
+    display: flex;
+    @media (max-width: 760px) {
+      flex-direction: column;
+    }
+    font-family: "Oswald", sans-serif;
+
+    h2 {
+      text-transform: uppercase;
+      font-weight: bold;
+      padding: 1em 0 0 0;
+    }
+
+    span {
+      font-weight: bold;
+    }
+    .left-pane {
+      width: 35%;
+      /* h2 {
+        text-transform: uppercase;
+        font-weight: bold;
+        padding: 1em 0;
+      } */
+      ul {
+        padding: 0 0 0 2em;
+      }
+      .contact {
+        li {
+          list-style: none;
+        }
+      }
+      .links a {
+        text-decoration: none;
+        color: #333;
+      }
+    }
+
+    .right-pane {
+      background: #fff;
+      width: 65%;
+      padding: 0 2em;
+
+      p {
+        padding: 0 0 0 2em;
+      }
+      ul {
+        padding: 0 0 0 3.2em;
+      }
+    }
+  }
+`;
