@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import Input from "./Input";
+import TextBox from "./TextBox";
 
 const initialValues = {
   fullName: "",
@@ -8,6 +9,8 @@ const initialValues = {
   address: "",
   phone: "",
   email: "",
+  skills: "",
+  summary: "",
 };
 const FormFields = () => {
   const [formData, setFormData] = useState(initialValues);
@@ -20,6 +23,8 @@ const FormFields = () => {
 
     console.log(formData);
   };
+
+  let skillsArray = formData.skills.split(",");
 
   return (
     <Pane>
@@ -59,6 +64,25 @@ const FormFields = () => {
           name="email"
           onChange={onChange}
         />
+        {/* PROFILE LINKS  */}
+
+        {/* SKILLS */}
+        <Input
+          label="Skills"
+          type="text"
+          placeholder="html, css..."
+          name="skills"
+          onChange={onChange}
+        />
+
+        {/* EXPERIENCE */}
+        <TextBox
+          label="Professional Summary"
+          name="summary"
+          onChange={onChange}
+          rows="4"
+          cols="50"
+        ></TextBox>
         <button type="submit">Submit</button>
       </form>
 
@@ -103,29 +127,18 @@ const FormFields = () => {
 
             <div className="Skills">
               <h2>Skills</h2>
-              <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>Javascript</li>
-                <li>React</li>
-                <li>MongoDB</li>
-                <li>Express.js</li>
-                <li>Node.js</li>
-                <li>Vue.js</li>
-                <li>Git</li>
-              </ul>
+
+              {skillsArray.map((skill) => (
+                <ul key={skill}>
+                  <li>{skill}</li>
+                </ul>
+              ))}
             </div>
           </section>
           <section className="right-pane">
             <div className="summary">
               <h2>Professional summary</h2>
-              <p>
-                Thanks for the post, I got the same issue when changed api call
-                and related infrastructure and my code was suddenly spitting a
-                date object into the jsx instead of the previous date formatted
-                string. The error message given wasn’t very helpful at the
-                beginning!
-              </p>
+              <p>{formData.summary}</p>
             </div>
             <div className="work-history">
               <h2>Work history</h2>
@@ -206,15 +219,13 @@ const FormFields = () => {
 export default FormFields;
 const Pane = styled.div`
   display: flex;
-  /* justify-content: space-between; */
   .form {
     width: 50%;
-    display: flex;
+    /* display: flex; */
   }
 `;
 const StyledContainer = styled.div`
   width: 60em;
-  /* margin: 2em auto; */
   background: #e5e9eb;
 
   .header-container {
