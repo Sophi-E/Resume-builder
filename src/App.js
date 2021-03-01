@@ -11,7 +11,7 @@ const App = () => {
   return (
     <Router>
       <div className="App">
-        <Navbar />
+        {/* <Navbar /> */}
         <Switch>
           <Route exact path="/" component={ResumeUi} />
           <Route exact path="/create-resume" component={FormFields} />

@@ -1,142 +1,148 @@
 import React from "react";
 import styled from "@emotion/styled";
+import Navbar from "./Navbar";
 
 const ResumeUi = () => {
   return (
-    <StyledContainer>
-      <div className="header-container">
-        <p className="name">John doe</p>
-        <p className="title">Frontend Developer</p>
-      </div>
-      <main>
-        <section className="left-pane">
-          <div className="contact">
-            <h2>Contact</h2>
-            <ul>
-              <li>
-                <span>Address</span>: Rivers, World 500927
-              </li>
-              <li>
-                <span>Phone</span>: +234900000000
-              </li>
-              <li>
-                <span>Email</span>: johndoe@test.com
-              </li>
-            </ul>
-          </div>
+    <>
+      <Navbar />
+      <StyledContainer>
+        <div className="header-container">
+          <p className="name">John doe</p>
+          <p className="title">Frontend Developer</p>
+        </div>
+        <main>
+          <section className="left-pane">
+            <div className="contact">
+              <h2>Contact</h2>
+              <ul>
+                <li>
+                  <span>Address</span>: Rivers, World 500927
+                </li>
+                <li>
+                  <span>Phone</span>: +234900000000
+                </li>
+                <li>
+                  <span>Email</span>: johndoe@test.com
+                </li>
+              </ul>
+            </div>
 
-          <div className="links">
-            <h2>Profile Links</h2>
-            <ul>
-              <li>
-                <a href="www.github.com">https://github.com/john-doe</a>
-              </li>
-              <li>
-                <a href="www.linkedin.com">https://linkedin.com/in/john-doe</a>
-              </li>
-              <li>
-                <a href="!#">https://jondoe.com</a>
-              </li>
-            </ul>
-          </div>
+            <div className="links">
+              <h2>Profile Links</h2>
+              <ul>
+                <li>
+                  <a href="www.github.com">https://github.com/john-doe</a>
+                </li>
+                <li>
+                  <a href="www.linkedin.com">
+                    https://linkedin.com/in/john-doe
+                  </a>
+                </li>
+                <li>
+                  <a href="!#">https://jondoe.com</a>
+                </li>
+              </ul>
+            </div>
 
-          <div className="Skills">
-            <h2>Skills</h2>
-            <ul>
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>Javascript</li>
-              <li>React</li>
-              <li>MongoDB</li>
-              <li>Express.js</li>
-              <li>Node.js</li>
-              <li>Vue.js</li>
-              <li>Git</li>
-            </ul>
-          </div>
-        </section>
-        <section className="right-pane">
-          <div className="summary">
-            <h2>Professional summary</h2>
-            <p>
-              Thanks for the post, I got the same issue when changed api call
-              and related infrastructure and my code was suddenly spitting a
-              date object into the jsx instead of the previous date formatted
-              string. The error message given wasn’t very helpful at the
-              beginning!
-            </p>
-          </div>
-          <div className="work-history">
-            <h2>Work history</h2>
-            <div>
-              <p>
-                <span>Front End Developer,</span> 12/2019 - 12/2020 <br />
-                <span>TechSoft Inc</span>- Port Harcourt, Rivers{" "}
-              </p>
+            <div className="Skills">
+              <h2>Skills</h2>
               <ul>
-                <li>
-                  survived not only five centuries, but also the leap into
-                  electronic typesetting, remaining essentially
-                </li>
-                <li>
-                  Contrary to popular belief, Lorem Ipsum is not simply random
-                  text. It has roots in a
-                </li>
-                <li>
-                  The standard chunk of Lorem Ipsum used since the 1500s is
-                </li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Javascript</li>
+                <li>React</li>
+                <li>MongoDB</li>
+                <li>Express.js</li>
+                <li>Node.js</li>
+                <li>Vue.js</li>
+                <li>Git</li>
               </ul>
             </div>
-            <div>
+          </section>
+          <section className="right-pane">
+            <div className="summary">
+              <h2>Professional summary</h2>
               <p>
-                <span>Front End Developer,</span> 12/2019 - 12/2020 <br />
-                <span>TechSoft Inc</span>- Port Harcourt, Rivers{" "}
+                Thanks for the post, I got the same issue when changed api call
+                and related infrastructure and my code was suddenly spitting a
+                date object into the jsx instead of the previous date formatted
+                string. The error message given wasn’t very helpful at the
+                beginning!
               </p>
-              <ul>
-                <li>
-                  survived not only five centuries, but also the leap into
-                  electronic typesetting, remaining essentially
-                </li>
-                <li>
-                  Contrary to popular belief, Lorem Ipsum is not simply random
-                  text. It has roots in a
-                </li>
-                <li>
-                  The standard chunk of Lorem Ipsum used since the 1500s is
-                </li>
-              </ul>
             </div>
-            <div>
+            <div className="work-history">
+              <h2>Work history</h2>
+              <div>
+                <p>
+                  <span>Front End Developer,</span> 12/2019 - 12/2020 <br />
+                  <span>TechSoft Inc</span>- Port Harcourt, Rivers{" "}
+                </p>
+                <ul>
+                  <li>
+                    survived not only five centuries, but also the leap into
+                    electronic typesetting, remaining essentially
+                  </li>
+                  <li>
+                    Contrary to popular belief, Lorem Ipsum is not simply random
+                    text. It has roots in a
+                  </li>
+                  <li>
+                    The standard chunk of Lorem Ipsum used since the 1500s is
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <p>
+                  <span>Front End Developer,</span> 12/2019 - 12/2020 <br />
+                  <span>TechSoft Inc</span>- Port Harcourt, Rivers{" "}
+                </p>
+                <ul>
+                  <li>
+                    survived not only five centuries, but also the leap into
+                    electronic typesetting, remaining essentially
+                  </li>
+                  <li>
+                    Contrary to popular belief, Lorem Ipsum is not simply random
+                    text. It has roots in a
+                  </li>
+                  <li>
+                    The standard chunk of Lorem Ipsum used since the 1500s is
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <p>
+                  <span>Front End Developer,</span> 12/2019 - 2020 <br />
+                  <span>TechSoft Inc</span>- Port Harcourt, Rivers{" "}
+                </p>
+                <ul>
+                  <li>
+                    survived not only five centuries, but also the leap into
+                    electronic typesetting, remaining essentially
+                  </li>
+                  <li>
+                    Contrary to popular belief, Lorem Ipsum is not simply random
+                    text. It has roots in a
+                  </li>
+                  <li>
+                    The standard chunk of Lorem Ipsum used since the 1500s is
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="education">
+              <h2>education</h2>
               <p>
-                <span>Front End Developer,</span> 12/2019 - 2020 <br />
-                <span>TechSoft Inc</span>- Port Harcourt, Rivers{" "}
+                <span>Bachelor of Arts: </span>Fine Arts, 12/2019 - 2020
+                <br />
+                <span>TechSoft Academy</span>- Port Harcourt, Rivers{" "}
               </p>
-              <ul>
-                <li>
-                  survived not only five centuries, but also the leap into
-                  electronic typesetting, remaining essentially
-                </li>
-                <li>
-                  Contrary to popular belief, Lorem Ipsum is not simply random
-                  text. It has roots in a
-                </li>
-                <li>
-                  The standard chunk of Lorem Ipsum used since the 1500s is
-                </li>
-              </ul>
             </div>
-          </div>
-          <div className="education">
-            <h2>education</h2>
-            <p>
-              <span>Bachelor of Arts: </span>Fine Arts, 12/2019 - 2020
-              <br />
-              <span>TechSoft Academy</span>- Port Harcourt, Rivers{" "}
-            </p>
-          </div>
-        </section>
-      </main>
-    </StyledContainer>
+          </section>
+        </main>
+      </StyledContainer>
+    </>
   );
 };
 

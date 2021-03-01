@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 import Input from "./Input";
 import TextBox from "./TextBox";
+import Experience from "./Experience";
 
 const initialValues = {
   fullName: "",
@@ -11,9 +12,23 @@ const initialValues = {
   email: "",
   skills: "",
   summary: "",
+  // jobTitle: "",
+  // duration: "",
+  // company: "",
+  // location: "",
+  // duties: "",
+  experience: [],
 };
 const FormFields = () => {
   const [formData, setFormData] = useState(initialValues);
+  const [displaySkills, toggleSkills] = useState(false);
+  const [displaySummary, toggleSummary] = useState(false);
+  const [displayExperience, toggleExperience] = useState(false);
+  const [displayEducation, toggleEducation] = useState(false);
+
+  //   const { jobTitle, duration, company, location, duties } = formData[
+  //     "experience"
+  //   ];
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -29,60 +44,172 @@ const FormFields = () => {
   return (
     <Pane>
       <form onSubmit={onFinish} className="form">
-        <Input
-          label="Name"
-          type="text"
-          placeholder="Enter your name"
-          name="fullName"
-          onChange={onChange}
-        />
-        <Input
-          label="Title"
-          type="text"
-          placeholder="Frontend Developer"
-          name="title"
-          onChange={onChange}
-        />
-        <Input
-          label="Address"
-          type="text"
-          placeholder="10, street, Lagos"
-          name="address"
-          onChange={onChange}
-        />
-        <Input
-          label="Phone"
-          type="text"
-          placeholder="+2340000000"
-          name="phone"
-          onChange={onChange}
-        />
-        <Input
-          label="Email"
-          type="email"
-          placeholder="johndoe@test.com"
-          name="email"
-          onChange={onChange}
-        />
+        <h2>Personal Details</h2>
+        <div className="personalDetails">
+          <Input
+            label="Name"
+            type="text"
+            placeholder="Enter your name"
+            name="fullName"
+            onChange={onChange}
+          />
+          <Input
+            label="Title"
+            type="text"
+            placeholder="Frontend Developer"
+            name="title"
+            onChange={onChange}
+          />
+          <Input
+            label="Address"
+            type="text"
+            placeholder="10, street, Lagos"
+            name="address"
+            onChange={onChange}
+          />
+          <Input
+            label="Phone"
+            type="text"
+            placeholder="+2340000000"
+            name="phone"
+            onChange={onChange}
+          />
+          <Input
+            label="Email"
+            type="email"
+            placeholder="johndoe@test.com"
+            name="email"
+            onChange={onChange}
+          />
+        </div>
         {/* PROFILE LINKS  */}
 
-        {/* SKILLS */}
-        <Input
-          label="Skills"
-          type="text"
-          placeholder="html, css..."
-          name="skills"
-          onChange={onChange}
-        />
+        {/* summary */}
+        <h2>Professional summary</h2>
+        <button
+          type="button"
+          className="btn btn-light"
+          onClick={() => toggleSummary(!displaySummary)}
+        >
+          Add Summary
+        </button>
+        {displaySummary && (
+          <TextBox
+            label="Professional Summary"
+            name="summary"
+            onChange={onChange}
+            rows="4"
+            cols="50"
+          ></TextBox>
+        )}
 
+        {/* SKILLS */}
+        <h2>Skills</h2>
+        <button
+          type="button"
+          className="btn btn-light"
+          onClick={() => toggleSkills(!displaySkills)}
+        >
+          Add Skills
+        </button>
+        <br />
+        {displaySkills && (
+          <>
+            <small className="form-text">
+              Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)
+            </small>
+            <Input
+              label="Skills"
+              type="text"
+              placeholder="html, css..."
+              name="skills"
+              onChange={onChange}
+            />
+          </>
+        )}
         {/* EXPERIENCE */}
-        <TextBox
-          label="Professional Summary"
-          name="summary"
-          onChange={onChange}
-          rows="4"
-          cols="50"
-        ></TextBox>
+        <h2>Work Experience</h2>
+        <button
+          type="button"
+          className="btn btn-light"
+          onClick={() => toggleExperience(!displayExperience)}
+        >
+          Add Experience
+        </button>
+        {displayExperience && (
+          <div className="personalDetails">
+            <Input
+              label="Job Title"
+              name="jobTitle"
+              type="text"
+              placeholder="Senior frontend developer"
+              onChange={onChange}
+            />
+            <Input
+              label="Job Duration"
+              name="duration"
+              type="text"
+              placeholder="12/2019 - 12/2020"
+              onChange={onChange}
+            />
+            <Input
+              label="Company"
+              name="company"
+              type="text"
+              placeholder="Google Inc"
+              onChange={onChange}
+            />
+            <Input
+              label="Job Location"
+              name="location"
+              type="text"
+              placeholder="Boston, Ma"
+              onChange={onChange}
+            />
+          </div>
+        )}
+
+        <h2>Education</h2>
+        <button
+          type="button"
+          className="btn btn-light"
+          onClick={() => toggleEducation(!displayEducation)}
+        >
+          Add Education
+        </button>
+        {displayEducation && (
+          <>
+            <Input
+              label="Job Title"
+              name="jobTitle"
+              type="text"
+              placeholder="Senior frontend developer"
+              onChange={onChange}
+            />
+            <Input
+              label="Job Duration"
+              name="duration"
+              type="text"
+              placeholder="12/2019 - 12/2020"
+              onChange={onChange}
+            />
+            <Input
+              label="Company"
+              name="company"
+              type="text"
+              placeholder="Google Inc"
+              onChange={onChange}
+            />
+            <Input
+              label="Job Location"
+              name="location"
+              type="text"
+              placeholder="Boston, Ma"
+              onChange={onChange}
+            />
+          </>
+        )}
+        <br />
         <button type="submit">Submit</button>
       </form>
 
@@ -112,15 +239,13 @@ const FormFields = () => {
               <h2>Profile Links</h2>
               <ul>
                 <li>
-                  <a href="www.github.com">https://github.com/john-doe</a>
+                  <a href="https://github.com/john-doe">Github</a>
                 </li>
                 <li>
-                  <a href="www.linkedin.com">
-                    https://linkedin.com/in/john-doe
-                  </a>
+                  <a href="https://linkedin.com/in/john-doe">Linkedin</a>
                 </li>
                 <li>
-                  <a href="!#">https://jondoe.com</a>
+                  <a href="https://jondoe.com">Portfolio</a>
                 </li>
               </ul>
             </div>
@@ -144,8 +269,8 @@ const FormFields = () => {
               <h2>Work history</h2>
               <div>
                 <p>
-                  <span>Front End Developer,</span> 12/2019 - 12/2020 <br />
-                  <span>TechSoft Inc</span>- Port Harcourt, Rivers{" "}
+                  <span>{formData.jobTitle},</span> {formData.duration} <br />
+                  <span>{formData.company}</span>- {formData.location}{" "}
                 </p>
                 <ul>
                   <li>
@@ -219,14 +344,26 @@ const FormFields = () => {
 export default FormFields;
 const Pane = styled.div`
   display: flex;
+  position: relative;
   .form {
     width: 50%;
-    /* display: flex; */
+    padding: 3em;
+    background: #fff;
+    height: 100vmax;
+    margin-right: 3em;
+    .personalDetails {
+      display: grid;
+      grid-template: auto auto / auto auto;
+    }
   }
 `;
 const StyledContainer = styled.div`
-  width: 60em;
+  width: 50em;
   background: #e5e9eb;
+  max-height: 100%;
+  margin: 5em;
+  margin-left: 57%;
+  position: fixed;
 
   .header-container {
     background-color: #576d7b;
@@ -289,7 +426,7 @@ const StyledContainer = styled.div`
     .right-pane {
       background: #fff;
       width: 65%;
-      padding: 0 2em;
+      padding: 0 2em 2em 2em;
 
       p {
         padding: 0 0 0 2em;

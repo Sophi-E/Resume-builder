@@ -24,14 +24,18 @@ const StyledLabel = styled.label`
   display: block;
   width: 100%;
   padding: 0.4em;
+  color: #a2a2b3;
+  font-weight: bold;
 `;
 const StyledInput = styled.input`
   width: 100%;
   display: block;
-  padding: 0.5em;
+  padding: 0.7em;
+  border-radius: 4px;
   border: none;
-
-  ::focus {
-    border: none;
+  background: #f2f5fa;
+  :focus {
+    outline: none;
+    border-bottom: 2px solid blue;
   }
 `;
