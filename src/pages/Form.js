@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
-import Input from "./Input";
-import TextBox from "./TextBox";
-import Experience from "./Experience";
+import Input from "../components/Input";
+import TextBox from "../components/TextBox";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { Link, withRouter } from "react-router-dom";
+import { createResume } from "../actions/resume";
 
 const initialValues = {
   fullName: "",
@@ -12,23 +15,15 @@ const initialValues = {
   email: "",
   skills: "",
   summary: "",
-  // jobTitle: "",
-  // duration: "",
-  // company: "",
-  // location: "",
-  // duties: "",
-  experience: [],
 };
-const FormFields = () => {
+const FormFields = ({ createResume, history }) => {
   const [formData, setFormData] = useState(initialValues);
   const [displaySkills, toggleSkills] = useState(false);
   const [displaySummary, toggleSummary] = useState(false);
   const [displayExperience, toggleExperience] = useState(false);
   const [displayEducation, toggleEducation] = useState(false);
 
-  //   const { jobTitle, duration, company, location, duties } = formData[
-  //     "experience"
-  //   ];
+  const { fullName, title, phone, email, address, summary, skills } = formData;
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -36,10 +31,12 @@ const FormFields = () => {
   const onFinish = (e) => {
     e.preventDefault();
 
+    createResume(formData, history);
+
     console.log(formData);
   };
 
-  let skillsArray = formData.skills.split(",");
+  let skillsArray = skills.split(",");
 
   return (
     <Pane>
@@ -50,12 +47,14 @@ const FormFields = () => {
             label="Name"
             type="text"
             placeholder="Enter your name"
+            value={fullName}
             name="fullName"
             onChange={onChange}
           />
           <Input
             label="Title"
             type="text"
+            value={title}
             placeholder="Frontend Developer"
             name="title"
             onChange={onChange}
@@ -63,12 +62,14 @@ const FormFields = () => {
           <Input
             label="Address"
             type="text"
+            value={address}
             placeholder="10, street, Lagos"
             name="address"
             onChange={onChange}
           />
           <Input
             label="Phone"
+            value={phone}
             type="text"
             placeholder="+2340000000"
             name="phone"
@@ -77,6 +78,7 @@ const FormFields = () => {
           <Input
             label="Email"
             type="email"
+            value={email}
             placeholder="johndoe@test.com"
             name="email"
             onChange={onChange}
@@ -97,6 +99,7 @@ const FormFields = () => {
           <TextBox
             label="Professional Summary"
             name="summary"
+            value={summary}
             onChange={onChange}
             rows="4"
             cols="50"
@@ -121,6 +124,7 @@ const FormFields = () => {
             <Input
               label="Skills"
               type="text"
+              value={skills}
               placeholder="html, css..."
               name="skills"
               onChange={onChange}
@@ -215,8 +219,8 @@ const FormFields = () => {
 
       <StyledContainer>
         <div className="header-container">
-          <p className="name">{formData.fullName}</p>
-          <p className="title">{formData.title}</p>
+          <p className="name">{fullName}</p>
+          <p className="title">{title}</p>
         </div>
         <main>
           <section className="left-pane">
@@ -224,13 +228,13 @@ const FormFields = () => {
               <h2>Contact</h2>
               <ul>
                 <li>
-                  <span>Address</span>: {formData.address}
+                  <span>Address</span>: {address}
                 </li>
                 <li>
-                  <span>Phone</span>: {formData.phone}
+                  <span>Phone</span>: {phone}
                 </li>
                 <li>
-                  <span>Email</span>: {formData.email}
+                  <span>Email</span>: {email}
                 </li>
               </ul>
             </div>
@@ -263,7 +267,7 @@ const FormFields = () => {
           <section className="right-pane">
             <div className="summary">
               <h2>Professional summary</h2>
-              <p>{formData.summary}</p>
+              <p>{summary}</p>
             </div>
             <div className="work-history">
               <h2>Work history</h2>
@@ -341,7 +345,11 @@ const FormFields = () => {
   );
 };
 
-export default FormFields;
+FormFields.propTypes = {
+  createResume: PropTypes.func.isRequired,
+};
+export default connect(null, { createResume })(FormFields);
+
 const Pane = styled.div`
   display: flex;
   position: relative;

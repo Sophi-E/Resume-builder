@@ -6,7 +6,7 @@ import store from "./store";
 
 import { loadUser } from "./actions/auth";
 import authToken from "./utils/authToken";
-import FormFields from "./components/Form";
+import FormFields from "./pages/Form";
 import Navbar from "./components/Navbar";
 import ResumeUi from "./components/ResumeUi";
 import Register from "./pages/auth/Register";
