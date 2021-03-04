@@ -8,4 +8,5 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
 export const LOGOUT = "LOGOUT";
 export const GET_RESUME = "GET_RESUME";
+export const CLEAR_RESUME = "CLEAR_RESUME";
 export const RESUME_ERROR = "RESUME_ERROR";
