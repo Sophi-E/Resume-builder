@@ -139,6 +139,9 @@ const ResumeUi = () => {
                 <span>TechSoft Academy</span>- Port Harcourt, Rivers{" "}
               </p>
             </div>
+            <br />
+            <br />
+            <br />
           </section>
         </main>
       </StyledContainer>
