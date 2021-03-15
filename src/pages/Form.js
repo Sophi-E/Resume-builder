@@ -9,7 +9,7 @@ import { createResume } from "../actions/resume";
 import ResumePage from "../components/resumeComponents/ResumePage";
 
 const initialValues = {
-  fullName: "",
+  name: "",
   title: "",
   address: "",
   phone: "",
@@ -24,7 +24,7 @@ const FormFields = ({ createResume, history }) => {
   const [displayExperience, toggleExperience] = useState(false);
   const [displayEducation, toggleEducation] = useState(false);
 
-  const { fullName, title, phone, email, address, summary, skills } = formData;
+  const { name, title, phone, email, address, summary, skills } = formData;
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -48,8 +48,8 @@ const FormFields = ({ createResume, history }) => {
             label="Name"
             type="text"
             placeholder="Enter your name"
-            value={fullName}
-            name="fullName"
+            value={name}
+            name="name"
             onChange={onChange}
           />
           <Input
@@ -139,7 +139,7 @@ const FormFields = ({ createResume, history }) => {
 
       <StyledContainer>
         <div className="header-container">
-          <p className="name">{fullName}</p>
+          <p className="name">{name}</p>
           <p className="title">{title}</p>
         </div>
         <main>

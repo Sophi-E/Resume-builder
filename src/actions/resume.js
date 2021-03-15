@@ -26,7 +26,7 @@ export const getResume = () => async (dispatch) => {
 export const getResumeById = (userId) => async (dispatch) => {
   try {
     const res = await axios.get(
-      `/https://gentle-headland-28953.herokuapp.com/api/resume/${userId}`
+      `/https://gentle-headland-28953.herokuapp.com/api/resume/user/${userId}`
     );
     dispatch({
       type: GET_RESUME,
@@ -65,7 +65,7 @@ export const createResume = (formData, history, edit = false) => async (
     dispatch(setAlert(edit ? "Resume Updated" : "Resume Created", "success"));
 
     if (!edit) {
-      history.push("/dashboard");
+      history.push("/resume");
     }
   } catch (err) {
     const errors = err.response.data.error;

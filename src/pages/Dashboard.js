@@ -20,12 +20,15 @@ const Dashboard = ({
       <p>Welcome {user && user.user.name}</p>
 
       {resume !== null ? (
-        <p>has</p>
+        <div>
+          <p>has</p>
+          <Link to="/resume">View your Resume</Link>
+        </div>
       ) : (
-        <>
+        <p>
           <p>You have not created any resume yet</p>
           <Link to="/create-resume">Create Resume</Link>
-        </>
+        </p>
       )}
     </>
   );
