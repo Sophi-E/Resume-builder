@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import { createResume } from "../actions/resume";
+import ResumePage from "../components/resumeComponents/ResumePage";
 
 const initialValues = {
   fullName: "",
@@ -131,88 +132,7 @@ const FormFields = ({ createResume, history }) => {
             />
           </>
         )}
-        {/* EXPERIENCE */}
-        <h2>Work Experience</h2>
-        <button
-          type="button"
-          className="btn btn-light"
-          onClick={() => toggleExperience(!displayExperience)}
-        >
-          Add Experience
-        </button>
-        {displayExperience && (
-          <div className="personalDetails">
-            <Input
-              label="Job Title"
-              name="jobTitle"
-              type="text"
-              placeholder="Senior frontend developer"
-              onChange={onChange}
-            />
-            <Input
-              label="Job Duration"
-              name="duration"
-              type="text"
-              placeholder="12/2019 - 12/2020"
-              onChange={onChange}
-            />
-            <Input
-              label="Company"
-              name="company"
-              type="text"
-              placeholder="Google Inc"
-              onChange={onChange}
-            />
-            <Input
-              label="Job Location"
-              name="location"
-              type="text"
-              placeholder="Boston, Ma"
-              onChange={onChange}
-            />
-          </div>
-        )}
 
-        <h2>Education</h2>
-        <button
-          type="button"
-          className="btn btn-light"
-          onClick={() => toggleEducation(!displayEducation)}
-        >
-          Add Education
-        </button>
-        {displayEducation && (
-          <>
-            <Input
-              label="Job Title"
-              name="jobTitle"
-              type="text"
-              placeholder="Senior frontend developer"
-              onChange={onChange}
-            />
-            <Input
-              label="Job Duration"
-              name="duration"
-              type="text"
-              placeholder="12/2019 - 12/2020"
-              onChange={onChange}
-            />
-            <Input
-              label="Company"
-              name="company"
-              type="text"
-              placeholder="Google Inc"
-              onChange={onChange}
-            />
-            <Input
-              label="Job Location"
-              name="location"
-              type="text"
-              placeholder="Boston, Ma"
-              onChange={onChange}
-            />
-          </>
-        )}
         <br />
         <button type="submit">Submit</button>
       </form>
@@ -269,7 +189,7 @@ const FormFields = ({ createResume, history }) => {
               <h2>Professional summary</h2>
               <p>{summary}</p>
             </div>
-            <div className="work-history">
+            {/* <div className="work-history">
               <h2>Work history</h2>
               <div>
                 <p>
@@ -336,11 +256,12 @@ const FormFields = ({ createResume, history }) => {
                 <br />
                 <span>TechSoft Academy</span>- Port Harcourt, Rivers{" "}
               </p>
-            </div>
+            </div> */}
           </section>
         </main>
       </StyledContainer>
-      {/* )} */}
+
+      {/* <ResumePage /> */}
     </Pane>
   );
 };
@@ -365,6 +286,7 @@ const Pane = styled.div`
     }
   }
 `;
+
 const StyledContainer = styled.div`
   width: 50em;
   background: #e5e9eb;

@@ -1,10 +1,11 @@
 import axios from "axios";
 import { setAlert } from "./alert";
 
-import { GET_RESUME, RESUME_ERROR } from "./types";
+import { CLEAR_RESUME, GET_RESUME, RESUME_ERROR } from "./types";
 
 //Get resume
 export const getResume = () => async (dispatch) => {
+  dispatch({ type: CLEAR_RESUME });
   try {
     const res = await axios.get(
       "https://gentle-headland-28953.herokuapp.com/api/resume/me"
@@ -14,6 +15,25 @@ export const getResume = () => async (dispatch) => {
       payload: res.data,
     });
   } catch (err) {
+    dispatch({
+      type: RESUME_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+//Get Profile by Id
+export const getResumeById = (userId) => async (dispatch) => {
+  try {
+    const res = await axios.get(
+      `/https://gentle-headland-28953.herokuapp.com/api/resume/${userId}`
+    );
+    dispatch({
+      type: GET_RESUME,
+      payload: res.data,
+    });
+  } catch (err) {
+    console.log("err response", err);
     dispatch({
       type: RESUME_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },

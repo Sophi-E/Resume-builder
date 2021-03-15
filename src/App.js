@@ -14,6 +14,7 @@ import Login from "./pages/auth/Login";
 import Alert from "./components/layout/Alert";
 import PrivateRoute from "./components/PrivateRoute";
 import Dashboard from "./pages/Dashboard";
+import ResumePage from "./components/resumeComponents/ResumePage";
 
 if (localStorage.token) {
   authToken(localStorage.token);
@@ -35,6 +36,7 @@ const App = () => {
             <Route exact path="/login" component={Login} />
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
             <PrivateRoute exact path="/create-resume" component={FormFields} />
+            <PrivateRoute exact path="/resume" component={ResumePage} />
           </Switch>
         </div>
       </Router>

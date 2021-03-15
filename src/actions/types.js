@@ -10,3 +10,4 @@ export const LOGOUT = "LOGOUT";
 export const GET_RESUME = "GET_RESUME";
 export const CLEAR_RESUME = "CLEAR_RESUME";
 export const RESUME_ERROR = "RESUME_ERROR";
+export const UPDATE_RESUME = "UPDATE_RESUME";

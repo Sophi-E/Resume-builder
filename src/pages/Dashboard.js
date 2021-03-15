@@ -11,7 +11,7 @@ const Dashboard = ({
 }) => {
   useEffect(() => {
     getResume();
-  });
+  }, [getResume]);
   return loading && resume === null ? (
     <p>Loading...</p>
   ) : (
