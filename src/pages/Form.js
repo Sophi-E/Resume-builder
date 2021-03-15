@@ -6,7 +6,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import { createResume } from "../actions/resume";
-import ResumePage from "../components/resumeComponents/ResumePage";
 
 const initialValues = {
   name: "",
@@ -17,126 +16,125 @@ const initialValues = {
   skills: "",
   summary: "",
 };
+
 const FormFields = ({ createResume, history }) => {
   const [formData, setFormData] = useState(initialValues);
+
   const [displaySkills, toggleSkills] = useState(false);
   const [displaySummary, toggleSummary] = useState(false);
-  const [displayExperience, toggleExperience] = useState(false);
-  const [displayEducation, toggleEducation] = useState(false);
 
   const { name, title, phone, email, address, summary, skills } = formData;
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
   const onFinish = (e) => {
     e.preventDefault();
 
     createResume(formData, history);
-
-    console.log(formData);
+    setFormData("");
   };
 
   let skillsArray = skills.split(",");
 
   return (
     <Pane>
-      <form onSubmit={onFinish} className="form">
-        <h2>Personal Details</h2>
-        <div className="personalDetails">
-          <Input
-            label="Name"
-            type="text"
-            placeholder="Enter your name"
-            value={name}
-            name="name"
-            onChange={onChange}
-          />
-          <Input
-            label="Title"
-            type="text"
-            value={title}
-            placeholder="Frontend Developer"
-            name="title"
-            onChange={onChange}
-          />
-          <Input
-            label="Address"
-            type="text"
-            value={address}
-            placeholder="10, street, Lagos"
-            name="address"
-            onChange={onChange}
-          />
-          <Input
-            label="Phone"
-            value={phone}
-            type="text"
-            placeholder="+2340000000"
-            name="phone"
-            onChange={onChange}
-          />
-          <Input
-            label="Email"
-            type="email"
-            value={email}
-            placeholder="johndoe@test.com"
-            name="email"
-            onChange={onChange}
-          />
-        </div>
-        {/* PROFILE LINKS  */}
-
-        {/* summary */}
-        <h2>Professional summary</h2>
-        <button
-          type="button"
-          className="btn btn-light"
-          onClick={() => toggleSummary(!displaySummary)}
-        >
-          Add Summary
-        </button>
-        {displaySummary && (
-          <TextBox
-            label="Professional Summary"
-            name="summary"
-            value={summary}
-            onChange={onChange}
-            rows="4"
-            cols="50"
-          ></TextBox>
-        )}
-
-        {/* SKILLS */}
-        <h2>Skills</h2>
-        <button
-          type="button"
-          className="btn btn-light"
-          onClick={() => toggleSkills(!displaySkills)}
-        >
-          Add Skills
-        </button>
-        <br />
-        {displaySkills && (
-          <>
-            <small className="form-text">
-              Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)
-            </small>
+      <div>
+        <form onSubmit={onFinish} className="form">
+          <h2>Personal Details</h2>
+          <div className="personalDetails">
             <Input
-              label="Skills"
+              label="Name"
               type="text"
-              value={skills}
-              placeholder="html, css..."
-              name="skills"
+              placeholder="Enter your name"
+              value={name}
+              name="name"
               onChange={onChange}
             />
-          </>
-        )}
+            <Input
+              label="Title"
+              type="text"
+              value={title}
+              placeholder="Frontend Developer"
+              name="title"
+              onChange={onChange}
+            />
+            <Input
+              label="Address"
+              type="text"
+              value={address}
+              placeholder="10, street, Lagos"
+              name="address"
+              onChange={onChange}
+            />
+            <Input
+              label="Phone"
+              value={phone}
+              type="text"
+              placeholder="+2340000000"
+              name="phone"
+              onChange={onChange}
+            />
+            <Input
+              label="Email"
+              type="email"
+              value={email}
+              placeholder="johndoe@test.com"
+              name="email"
+              onChange={onChange}
+            />
+          </div>
 
-        <br />
-        <button type="submit">Submit</button>
-      </form>
+          <h2>Professional summary</h2>
+          <button
+            type="button"
+            className="btn btn-light"
+            onClick={() => toggleSummary(!displaySummary)}
+          >
+            Add Summary
+          </button>
+          {displaySummary && (
+            <TextBox
+              label="Professional Summary"
+              name="summary"
+              value={summary}
+              onChange={onChange}
+              rows="4"
+              cols="50"
+            ></TextBox>
+          )}
 
+          {/* SKILLS */}
+          <h2>Skills</h2>
+          <button
+            type="button"
+            className="btn btn-light"
+            onClick={() => toggleSkills(!displaySkills)}
+          >
+            Add Skills
+          </button>
+          <br />
+          {displaySkills && (
+            <>
+              <small className="form-text">
+                Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)
+              </small>
+              <Input
+                label="Skills"
+                type="text"
+                value={skills}
+                placeholder="html, css..."
+                name="skills"
+                onChange={onChange}
+              />
+            </>
+          )}
+
+          <br />
+          <button type="submit">Save</button>
+        </form>
+      </div>
       <StyledContainer>
         <div className="header-container">
           <p className="name">{name}</p>

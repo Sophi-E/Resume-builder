@@ -2,8 +2,11 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import styled from "@emotion/styled";
+
 import { getResume } from "../actions/resume";
 import PersonalDetail from "../components/resumeComponents/PersonalDetail";
+import Experience from "../components/resumeComponents/Experience";
 
 const Dashboard = ({
   getResume,
@@ -18,14 +21,24 @@ const Dashboard = ({
   return loading && resume === null ? (
     <p>Loading...</p>
   ) : (
-    <>
+    <StyledWrapper>
       <h1>Dashboard</h1>
       <p>Welcome {user && user.user.name}</p>
 
       {resume !== null ? (
         <>
-          <Link to="/resume">View Resume</Link>
+          <Link to="/create-resume">Edit Resume</Link>
+          <Link to="/add-experience">Add Experience to Resume</Link>
           <PersonalDetail resume={resume} />
+          {resume.experience.length > 0 ? (
+            <>
+              {resume.experience.map((experience) => (
+                <Experience key={experience._id} experience={experience} />
+              ))}
+            </>
+          ) : (
+            <h4> No experience credentials</h4>
+          )}
         </>
       ) : (
         <>
@@ -33,7 +46,7 @@ const Dashboard = ({
           <Link to="/create-resume">Create Resume</Link>
         </>
       )}
-    </>
+    </StyledWrapper>
   );
 };
 
@@ -48,3 +61,7 @@ const mapStateToProps = (state) => ({
   resume: state.resume,
 });
 export default connect(mapStateToProps, { getResume })(Dashboard);
+
+const StyledWrapper = styled.div`
+  padding: 2em 5em;
+`;

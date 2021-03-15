@@ -1,7 +1,7 @@
 import axios from "axios";
 import { setAlert } from "./alert";
 
-import { CLEAR_RESUME, GET_RESUME, RESUME_ERROR } from "./types";
+import { CLEAR_RESUME, GET_RESUME, RESUME_ERROR, UPDATE_RESUME } from "./types";
 
 //Get resume
 export const getResume = () => async (dispatch) => {
@@ -65,13 +65,49 @@ export const createResume = (formData, history, edit = false) => async (
     dispatch(setAlert(edit ? "Resume Updated" : "Resume Created", "success"));
 
     if (!edit) {
-      history.push("/resume");
+      history.push("/add-experience");
     }
   } catch (err) {
     const errors = err.response.data.error;
 
     if (errors) {
       errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+    }
+
+    dispatch({
+      type: RESUME_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+//Add Experience
+export const addExperience = (formData, history) => async (dispatch) => {
+  try {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    const res = await axios.put(
+      "https://gentle-headland-28953.herokuapp.com/api/resume/experience",
+      formData,
+      config
+    );
+
+    dispatch({
+      type: UPDATE_RESUME,
+      payload: res.data,
+    });
+    dispatch(setAlert("Experience Added"));
+
+    // history.push("/dashboard");
+  } catch (err) {
+    const errors = err.response.data.error;
+
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg)));
     }
 
     dispatch({

@@ -5,8 +5,6 @@ import styled from "@emotion/styled";
 const PersonalDetail = ({
   resume: { name, title, email, address, phone, summary, skills },
 }) => {
-  //   let skillsArray = skills.split(",");
-
   return (
     <StyledContainer>
       <div className="header-container">
@@ -60,74 +58,6 @@ const PersonalDetail = ({
             <h2>Professional summary</h2>
             <p>{summary}</p>
           </div>
-          {/* <div className="work-history">
-              <h2>Work history</h2>
-              <div>
-                <p>
-                  <span>{formData.jobTitle},</span> {formData.duration} <br />
-                  <span>{formData.company}</span>- {formData.location}{" "}
-                </p>
-                <ul>
-                  <li>
-                    survived not only five centuries, but also the leap into
-                    electronic typesetting, remaining essentially
-                  </li>
-                  <li>
-                    Contrary to popular belief, Lorem Ipsum is not simply random
-                    text. It has roots in a
-                  </li>
-                  <li>
-                    The standard chunk of Lorem Ipsum used since the 1500s is
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <p>
-                  <span>Front End Developer,</span> 12/2019 - 12/2020 <br />
-                  <span>TechSoft Inc</span>- Port Harcourt, Rivers{" "}
-                </p>
-                <ul>
-                  <li>
-                    survived not only five centuries, but also the leap into
-                    electronic typesetting, remaining essentially
-                  </li>
-                  <li>
-                    Contrary to popular belief, Lorem Ipsum is not simply random
-                    text. It has roots in a
-                  </li>
-                  <li>
-                    The standard chunk of Lorem Ipsum used since the 1500s is
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <p>
-                  <span>Front End Developer,</span> 12/2019 - 2020 <br />
-                  <span>TechSoft Inc</span>- Port Harcourt, Rivers{" "}
-                </p>
-                <ul>
-                  <li>
-                    survived not only five centuries, but also the leap into
-                    electronic typesetting, remaining essentially
-                  </li>
-                  <li>
-                    Contrary to popular belief, Lorem Ipsum is not simply random
-                    text. It has roots in a
-                  </li>
-                  <li>
-                    The standard chunk of Lorem Ipsum used since the 1500s is
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="education">
-              <h2>education</h2>
-              <p>
-                <span>Bachelor of Arts: </span>Fine Arts, 12/2019 - 2020
-                <br />
-                <span>TechSoft Academy</span>- Port Harcourt, Rivers{" "}
-              </p>
-            </div> */}
         </section>
       </main>
     </StyledContainer>
@@ -143,9 +73,6 @@ const StyledContainer = styled.div`
   width: 50em;
   background: #e5e9eb;
   max-height: 100%;
-  margin: 5em;
-  margin-left: 57%;
-  position: fixed;
 
   .header-container {
     background-color: #576d7b;
