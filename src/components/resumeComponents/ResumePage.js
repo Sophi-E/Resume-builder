@@ -7,17 +7,23 @@ import { getResume } from "../../actions/resume";
 import PersonalDetail from "./PersonalDetail";
 import auth from "../../reducers/auth";
 
-const ResumePage = ({ match, getResume, resume: { resume, loading } }) => {
+const ResumePage = ({
+  getResume,
+  resume: { resume, loading },
+  auth: { user },
+}) => {
   useEffect(() => {
     getResume();
   }, [getResume]);
+
+  console.log(resume);
   return (
     <>
       {resume === null || loading ? (
         <h1>Loading...</h1>
       ) : (
         <>
-          {auth.isAuthenticated && auth.user._id === resume.user && (
+          {resume !== null && (
             <div>
               <PersonalDetail resume={resume} />
             </div>

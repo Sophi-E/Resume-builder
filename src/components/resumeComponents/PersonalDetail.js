@@ -5,7 +5,8 @@ import styled from "@emotion/styled";
 const PersonalDetail = ({
   resume: { name, title, email, address, phone, summary, skills },
 }) => {
-  let skillsArray = skills.split(",");
+  //   let skillsArray = skills.split(",");
+
   return (
     <StyledContainer>
       <div className="header-container">
@@ -47,7 +48,7 @@ const PersonalDetail = ({
           <div className="Skills">
             <h2>Skills</h2>
 
-            {skillsArray.map((skill) => (
+            {skills.map((skill) => (
               <ul key={skill}>
                 <li>{skill}</li>
               </ul>

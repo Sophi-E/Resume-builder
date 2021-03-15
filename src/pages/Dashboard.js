@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getResume } from "../actions/resume";
+import PersonalDetail from "../components/resumeComponents/PersonalDetail";
 
 const Dashboard = ({
   getResume,
@@ -12,6 +13,8 @@ const Dashboard = ({
   useEffect(() => {
     getResume();
   }, [getResume]);
+
+  console.log(resume);
   return loading && resume === null ? (
     <p>Loading...</p>
   ) : (
@@ -20,15 +23,15 @@ const Dashboard = ({
       <p>Welcome {user && user.user.name}</p>
 
       {resume !== null ? (
-        <div>
-          <p>has</p>
-          <Link to="/resume">View your Resume</Link>
-        </div>
+        <>
+          <Link to="/resume">View Resume</Link>
+          <PersonalDetail resume={resume} />
+        </>
       ) : (
-        <p>
+        <>
           <p>You have not created any resume yet</p>
           <Link to="/create-resume">Create Resume</Link>
-        </p>
+        </>
       )}
     </>
   );
