@@ -15,6 +15,9 @@ const initialValues = {
   email: "",
   skills: "",
   summary: "",
+  experience: {
+    title: "",
+  },
 };
 
 const FormFields = ({ createResume, history }) => {
@@ -23,7 +26,16 @@ const FormFields = ({ createResume, history }) => {
   const [displaySkills, toggleSkills] = useState(false);
   const [displaySummary, toggleSummary] = useState(false);
 
-  const { name, title, phone, email, address, summary, skills } = formData;
+  const {
+    name,
+    title,
+    phone,
+    email,
+    address,
+    summary,
+    skills,
+    experience,
+  } = formData;
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -32,8 +44,9 @@ const FormFields = ({ createResume, history }) => {
   const onFinish = (e) => {
     e.preventDefault();
 
-    createResume(formData, history);
-    setFormData("");
+    // createResume(formData, history);
+    // setFormData("");
+    console.log(formData);
   };
 
   let skillsArray = skills.split(",");
@@ -130,6 +143,19 @@ const FormFields = ({ createResume, history }) => {
               />
             </>
           )}
+          <Input
+            label="Experience"
+            type="text"
+            value={experience.title}
+            placeholder="html, css..."
+            // name='experience'
+            onChange={(e) =>
+              setFormData({
+                ...formData,
+                experience: { ...formData.experience, title: e.target.value },
+              })
+            }
+          />
 
           <br />
           <button type="submit">Save</button>
