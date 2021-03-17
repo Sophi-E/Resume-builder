@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Moment from "react-moment";
+import dayjs from "dayjs";
 
 const Experience = ({
   experience: { company, title, location, current, from, to, description },
@@ -8,8 +8,8 @@ const Experience = ({
   <div>
     <h3 className="text-dark">{company}</h3>
     <p>
-      <Moment format="YYYY/MM/DD">{from} </Moment> -{" "}
-      {!to ? "Now" : <Moment format="YYYY/MM/DD">{to} </Moment>}
+      {dayjs(from).format("DD/MM/YYYY")} - {""}
+      {!to ? "Now" : dayjs(to).format("DD/MM/YYYY")}
     </p>
     <p>
       <strong>Position</strong> {title}
