@@ -15,6 +15,7 @@ import Alert from "./components/layout/Alert";
 import PrivateRoute from "./components/PrivateRoute";
 import Dashboard from "./pages/Dashboard";
 import AddExperience from "./pages/AddExperience";
+import AddEducation from "./pages/AddEducation";
 
 if (localStorage.token) {
   authToken(localStorage.token);
@@ -40,6 +41,11 @@ const App = () => {
               exact
               path="/add-experience"
               component={AddExperience}
+            />
+            <PrivateRoute
+              exact
+              path="/add-education"
+              component={AddEducation}
             />
           </Switch>
         </div>

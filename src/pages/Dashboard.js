@@ -7,6 +7,7 @@ import styled from "@emotion/styled";
 import { getResume } from "../actions/resume";
 import PersonalDetail from "../components/resumeComponents/PersonalDetail";
 import Experience from "../components/resumeComponents/Experience";
+import Education from "../components/resumeComponents/Education";
 
 const Dashboard = ({
   getResume,
@@ -28,7 +29,8 @@ const Dashboard = ({
       {resume !== null ? (
         <>
           <Link to="/create-resume">Edit Resume</Link> | {""}
-          <Link to="/add-experience">Add Experience to Resume</Link>
+          <Link to="/add-experience">Add Experience to Resume</Link> | {""}
+          <Link to="/add-education">Add Education to Resume</Link>
           <br />
           <br />
           <hr />
@@ -42,6 +44,16 @@ const Dashboard = ({
             </>
           ) : (
             <h4> No experience credentials</h4>
+          )}
+          <h2>Education</h2>
+          {resume.education.length > 0 ? (
+            <>
+              {resume.education.map((education) => (
+                <Education key={education._id} education={education} />
+              ))}
+            </>
+          ) : (
+            <h4> No education credentials</h4>
           )}
         </>
       ) : (
