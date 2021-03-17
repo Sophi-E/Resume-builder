@@ -6,22 +6,20 @@ const Experience = ({
   experience: { company, title, location, current, from, to, description },
 }) => (
   <div>
-    <h3 className="text-dark">{company}</h3>
+    <h4 className="text-dark">{company}</h4>
     <p>
       {dayjs(from).format("DD/MM/YYYY")} - {""}
       {!to ? "Now" : dayjs(to).format("DD/MM/YYYY")}
     </p>
     <p>
-      <strong>Position</strong> {title}
+      <strong>{title}</strong>
     </p>
-    <p>
-      <strong>Description</strong> {description}
-    </p>
+    <p>{description}</p>
   </div>
 );
 
 Experience.propTypes = {
-  experience: PropTypes.array.isRequired,
+  experience: PropTypes.object.isRequired,
 };
 
 export default Experience;

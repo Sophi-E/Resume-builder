@@ -27,9 +27,13 @@ const Dashboard = ({
 
       {resume !== null ? (
         <>
-          <Link to="/create-resume">Edit Resume</Link>
+          <Link to="/create-resume">Edit Resume</Link> | {""}
           <Link to="/add-experience">Add Experience to Resume</Link>
+          <br />
+          <br />
+          <hr />
           <PersonalDetail resume={resume} />
+          <h2>Work Experience</h2>
           {resume.experience.length > 0 ? (
             <>
               {resume.experience.map((experience) => (

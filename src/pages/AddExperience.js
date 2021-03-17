@@ -22,7 +22,6 @@ const AddExperience = ({ addExperience, history }) => {
   const { title, company, location, from, to, description, current } = expData;
 
   const onChange = (e) => {
-    console.log({ [e.target.name]: e.target.value });
     setExpdata({ ...expData, [e.target.name]: e.target.value });
   };
 

@@ -15,9 +15,9 @@ const initialValues = {
   email: "",
   skills: "",
   summary: "",
-  experience: {
-    title: "",
-  },
+  // experience: {
+  //   title: "",
+  // },
 };
 
 const FormFields = ({ createResume, history }) => {
@@ -34,7 +34,7 @@ const FormFields = ({ createResume, history }) => {
     address,
     summary,
     skills,
-    experience,
+    // experience,
   } = formData;
 
   const onChange = (e) => {
@@ -142,7 +142,7 @@ const FormFields = ({ createResume, history }) => {
             />
           </>
         )}
-        <Input
+        {/* <Input
           label="Experience"
           type="text"
           value={experience.title}
@@ -154,7 +154,7 @@ const FormFields = ({ createResume, history }) => {
               experience: { ...formData.experience, title: e.target.value },
             })
           }
-        />
+        /> */}
 
         <br />
         <button type="submit">Save</button>

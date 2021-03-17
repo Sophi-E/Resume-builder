@@ -6,7 +6,7 @@ const PersonalDetail = ({
   resume: { name, title, email, address, phone, summary, skills },
 }) => {
   return (
-    <StyledContainer>
+    <>
       <div className="header-container">
         <p className="name">{name}</p>
         <p className="title">{title}</p>
@@ -60,7 +60,7 @@ const PersonalDetail = ({
           </div>
         </section>
       </main>
-    </StyledContainer>
+    </>
   );
 };
 
@@ -69,80 +69,73 @@ PersonalDetail.propTypes = {
 };
 export default PersonalDetail;
 
-const StyledContainer = styled.div`
-  width: 50em;
-  background: #e5e9eb;
-  max-height: 100%;
+// const StyledContainer = styled.div`
+//   width: 50em;
+//   background: #e5e9eb;
+//   max-height: 100%;
 
-  .header-container {
-    background-color: #576d7b;
-    text-align: center;
-    text-transform: uppercase;
-    padding: 1em 0;
-    color: #eef0f1 !important;
-    margin-bottom: 3em;
-    font-family: "Roboto Slab", serif;
+//   .header-container {
+//     background-color: #576d7b;
+//     text-align: center;
+//     text-transform: uppercase;
+//     padding: 1em 0;
+//     color: #eef0f1 !important;
+//     margin-bottom: 3em;
+//     font-family: "Roboto Slab", serif;
 
-    .name {
-      font-size: 3.5em;
-      margin-bottom: 0;
-    }
+//     .name {
+//       font-size: 3.5em;
+//       margin-bottom: 0;
+//     }
 
-    .title {
-      /* font-size: 1.3em; */
-    }
-  }
+//   }
 
-  main {
-    width: 100%;
-    padding: 0 0 0 2em;
-    display: flex;
-    @media (max-width: 760px) {
-      flex-direction: column;
-    }
-    font-family: "Oswald", sans-serif;
+//   main {
+//     width: 100%;
+//     padding: 0 0 0 2em;
+//     display: flex;
+//     @media (max-width: 760px) {
+//       flex-direction: column;
+//     }
+//     font-family: "Oswald", sans-serif;
 
-    h2 {
-      text-transform: uppercase;
-      font-weight: bold;
-      padding: 1em 0 0 0;
-    }
+//     h2 {
+//       text-transform: uppercase;
+//       font-weight: bold;
+//       padding: 1em 0 0 0;
+//     }
 
-    span {
-      font-weight: bold;
-    }
-    .left-pane {
-      width: 35%;
-      /* h2 {
-        text-transform: uppercase;
-        font-weight: bold;
-        padding: 1em 0;
-      } */
-      ul {
-        padding: 0 0 0 2em;
-      }
-      .contact {
-        li {
-          list-style: none;
-        }
-      }
-      .links a {
-        text-decoration: none;
-        color: #333;
-      }
-    }
+//     span {
+//       font-weight: bold;
+//     }
+//     .left-pane {
+//       width: 35%;
 
-    .right-pane {
-      background: #fff;
-      width: 65%;
-      padding: 0 2em 2em 2em;
+//       ul {
+//         padding: 0 0 0 2em;
+//       }
+//       .contact {
+//         li {
+//           list-style: none;
+//         }
+//       }
+//       .links a {
+//         text-decoration: none;
+//         color: #333;
+//       }
+//     }
 
-      p {
-        padding: 0 0 0 2em;
-      }
-      ul {
-        padding: 0 0 0 3.2em;
-      }
-    }
-  }
-`;
+//     .right-pane {
+//       background: #fff;
+//       width: 65%;
+//       padding: 0 2em 2em 2em;
+
+//       p {
+//         padding: 0 0 0 2em;
+//       }
+//       ul {
+//         padding: 0 0 0 3.2em;
+//       }
+//     }
+//   }
+// `;
