@@ -44,123 +44,123 @@ const FormFields = ({ createResume, history }) => {
   const onFinish = (e) => {
     e.preventDefault();
 
-    // createResume(formData, history);
-    // setFormData("");
-    console.log(formData);
+    createResume(formData, history);
+    setFormData("");
   };
 
   let skillsArray = skills.split(",");
 
   return (
     <Pane>
-      <div>
-        <form onSubmit={onFinish} className="form">
-          <h2>Personal Details</h2>
-          <div className="personalDetails">
-            <Input
-              label="Name"
-              type="text"
-              placeholder="Enter your name"
-              value={name}
-              name="name"
-              onChange={onChange}
-            />
-            <Input
-              label="Title"
-              type="text"
-              value={title}
-              placeholder="Frontend Developer"
-              name="title"
-              onChange={onChange}
-            />
-            <Input
-              label="Address"
-              type="text"
-              value={address}
-              placeholder="10, street, Lagos"
-              name="address"
-              onChange={onChange}
-            />
-            <Input
-              label="Phone"
-              value={phone}
-              type="text"
-              placeholder="+2340000000"
-              name="phone"
-              onChange={onChange}
-            />
-            <Input
-              label="Email"
-              type="email"
-              value={email}
-              placeholder="johndoe@test.com"
-              name="email"
-              onChange={onChange}
-            />
-          </div>
-
-          <h2>Professional summary</h2>
-          <button
-            type="button"
-            className="btn btn-light"
-            onClick={() => toggleSummary(!displaySummary)}
-          >
-            Add Summary
-          </button>
-          {displaySummary && (
-            <TextBox
-              label="Professional Summary"
-              name="summary"
-              value={summary}
-              onChange={onChange}
-              rows="4"
-              cols="50"
-            ></TextBox>
-          )}
-
-          {/* SKILLS */}
-          <h2>Skills</h2>
-          <button
-            type="button"
-            className="btn btn-light"
-            onClick={() => toggleSkills(!displaySkills)}
-          >
-            Add Skills
-          </button>
-          <br />
-          {displaySkills && (
-            <>
-              <small className="form-text">
-                Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)
-              </small>
-              <Input
-                label="Skills"
-                type="text"
-                value={skills}
-                placeholder="html, css..."
-                name="skills"
-                onChange={onChange}
-              />
-            </>
-          )}
+      {/* <div> */}
+      <form onSubmit={onFinish} className="form">
+        <h2>Personal Details</h2>
+        <div className="personalDetails">
           <Input
-            label="Experience"
+            label="Name"
             type="text"
-            value={experience.title}
-            placeholder="html, css..."
-            // name='experience'
-            onChange={(e) =>
-              setFormData({
-                ...formData,
-                experience: { ...formData.experience, title: e.target.value },
-              })
-            }
+            placeholder="Enter your name"
+            value={name}
+            name="name"
+            onChange={onChange}
           />
+          <Input
+            label="Title"
+            type="text"
+            value={title}
+            placeholder="Frontend Developer"
+            name="title"
+            onChange={onChange}
+          />
+          <Input
+            label="Address"
+            type="text"
+            value={address}
+            placeholder="10, street, Lagos"
+            name="address"
+            onChange={onChange}
+          />
+          <Input
+            label="Phone"
+            value={phone}
+            type="text"
+            placeholder="+2340000000"
+            name="phone"
+            onChange={onChange}
+          />
+          <Input
+            label="Email"
+            type="email"
+            value={email}
+            placeholder="johndoe@test.com"
+            name="email"
+            onChange={onChange}
+          />
+        </div>
 
-          <br />
-          <button type="submit">Save</button>
-        </form>
-      </div>
+        <h2>Professional summary</h2>
+        <button
+          type="button"
+          className="btn btn-light"
+          onClick={() => toggleSummary(!displaySummary)}
+        >
+          Add Summary
+        </button>
+        {displaySummary && (
+          <TextBox
+            label="Professional Summary"
+            name="summary"
+            value={summary}
+            onChange={onChange}
+            rows="4"
+            cols="50"
+          ></TextBox>
+        )}
+
+        {/* SKILLS */}
+        <h2>Skills</h2>
+        <button
+          type="button"
+          className="btn btn-light"
+          onClick={() => toggleSkills(!displaySkills)}
+        >
+          Add Skills
+        </button>
+        <br />
+        {displaySkills && (
+          <>
+            <small className="form-text">
+              Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)
+            </small>
+            <Input
+              label="Skills"
+              type="text"
+              value={skills}
+              placeholder="html, css..."
+              name="skills"
+              onChange={onChange}
+            />
+          </>
+        )}
+        <Input
+          label="Experience"
+          type="text"
+          value={experience.title}
+          placeholder="html, css..."
+          // name='experience'
+          onChange={(e) =>
+            setFormData({
+              ...formData,
+              experience: { ...formData.experience, title: e.target.value },
+            })
+          }
+        />
+
+        <br />
+        <button type="submit">Save</button>
+      </form>
+      {/* </div> */}
+
       <StyledContainer>
         <div className="header-container">
           <p className="name">{name}</p>
@@ -213,74 +213,6 @@ const FormFields = ({ createResume, history }) => {
               <h2>Professional summary</h2>
               <p>{summary}</p>
             </div>
-            {/* <div className="work-history">
-              <h2>Work history</h2>
-              <div>
-                <p>
-                  <span>{formData.jobTitle},</span> {formData.duration} <br />
-                  <span>{formData.company}</span>- {formData.location}{" "}
-                </p>
-                <ul>
-                  <li>
-                    survived not only five centuries, but also the leap into
-                    electronic typesetting, remaining essentially
-                  </li>
-                  <li>
-                    Contrary to popular belief, Lorem Ipsum is not simply random
-                    text. It has roots in a
-                  </li>
-                  <li>
-                    The standard chunk of Lorem Ipsum used since the 1500s is
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <p>
-                  <span>Front End Developer,</span> 12/2019 - 12/2020 <br />
-                  <span>TechSoft Inc</span>- Port Harcourt, Rivers{" "}
-                </p>
-                <ul>
-                  <li>
-                    survived not only five centuries, but also the leap into
-                    electronic typesetting, remaining essentially
-                  </li>
-                  <li>
-                    Contrary to popular belief, Lorem Ipsum is not simply random
-                    text. It has roots in a
-                  </li>
-                  <li>
-                    The standard chunk of Lorem Ipsum used since the 1500s is
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <p>
-                  <span>Front End Developer,</span> 12/2019 - 2020 <br />
-                  <span>TechSoft Inc</span>- Port Harcourt, Rivers{" "}
-                </p>
-                <ul>
-                  <li>
-                    survived not only five centuries, but also the leap into
-                    electronic typesetting, remaining essentially
-                  </li>
-                  <li>
-                    Contrary to popular belief, Lorem Ipsum is not simply random
-                    text. It has roots in a
-                  </li>
-                  <li>
-                    The standard chunk of Lorem Ipsum used since the 1500s is
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="education">
-              <h2>education</h2>
-              <p>
-                <span>Bachelor of Arts: </span>Fine Arts, 12/2019 - 2020
-                <br />
-                <span>TechSoft Academy</span>- Port Harcourt, Rivers{" "}
-              </p>
-            </div> */}
           </section>
         </main>
       </StyledContainer>
@@ -309,6 +241,20 @@ const Pane = styled.div`
       grid-template: auto auto / auto auto;
     }
   }
+  @media (max-width: 760px) {
+    flex-direction: column;
+    padding: 2em;
+    .form {
+      width: 100%;
+      height: auto;
+      padding: 1em;
+      margin: auto;
+      margin-bottom: 2em;
+    }
+    .personalDetails {
+      grid-template: auto;
+    }
+  }
 `;
 
 const StyledContainer = styled.div`
@@ -317,7 +263,14 @@ const StyledContainer = styled.div`
   max-height: 100%;
   margin: 5em;
   margin-left: 57%;
+  right: 0.1em;
   position: fixed;
+
+  @media (max-width: 760px) {
+    position: relative;
+    width: 100%;
+    margin: auto;
+  }
 
   .header-container {
     background-color: #576d7b;
@@ -332,19 +285,13 @@ const StyledContainer = styled.div`
       font-size: 3.5em;
       margin-bottom: 0;
     }
-
-    .title {
-      /* font-size: 1.3em; */
-    }
   }
 
   main {
     width: 100%;
     padding: 0 0 0 2em;
     display: flex;
-    @media (max-width: 760px) {
-      flex-direction: column;
-    }
+
     font-family: "Oswald", sans-serif;
 
     h2 {
@@ -367,6 +314,7 @@ const StyledContainer = styled.div`
         padding: 0 0 0 2em;
       }
       .contact {
+        padding-right: 1em;
         li {
           list-style: none;
         }
