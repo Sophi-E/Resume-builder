@@ -6,8 +6,7 @@ import styled from "@emotion/styled";
 
 import { getResume } from "../actions/resume";
 import PersonalDetail from "../components/resumeComponents/PersonalDetail";
-import Experience from "../components/resumeComponents/Experience";
-import Education from "../components/resumeComponents/Education";
+import PdfDownloader from "../utils/pdfDownloader";
 
 const Dashboard = ({
   getResume,
@@ -34,7 +33,10 @@ const Dashboard = ({
           <br />
           <br />
           <hr />
-          <PersonalDetail resume={resume} />
+          <PdfDownloader downloadFileName="ResumePdf" elementId="resumePdf" />
+          <div id="resumePdf">
+            <PersonalDetail resume={resume} />
+          </div>
         </>
       ) : (
         <>
