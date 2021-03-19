@@ -14,10 +14,6 @@ const Education = ({
       {school} | {dayjs(from).format("DD/MM/YYYY")} - {""}
       {!to ? "Now" : dayjs(to).format("DD/MM/YYYY")}
     </p>
-    {/* <p>
-      {dayjs(from).format("DD/MM/YYYY")} - {""}
-      {!to ? "Now" : dayjs(to).format("DD/MM/YYYY")}
-    </p> */}
   </div>
 );
 

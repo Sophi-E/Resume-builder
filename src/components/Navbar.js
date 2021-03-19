@@ -12,6 +12,9 @@ const Navbar = () => {
           <li>
             <Link to="/create-resume">Create Resume</Link>
           </li>
+          <li>
+            <Link to="/dashboard">Dashboard</Link>
+          </li>
           {/* <li>
               <Link to="/users">Users</Link>
             </li> */}

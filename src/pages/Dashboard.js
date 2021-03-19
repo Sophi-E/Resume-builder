@@ -35,26 +35,6 @@ const Dashboard = ({
           <br />
           <hr />
           <PersonalDetail resume={resume} />
-          <h2>Work Experience</h2>
-          {resume.experience.length > 0 ? (
-            <>
-              {resume.experience.map((experience) => (
-                <Experience key={experience._id} experience={experience} />
-              ))}
-            </>
-          ) : (
-            <h4> No experience credentials</h4>
-          )}
-          <h2>Education</h2>
-          {resume.education.length > 0 ? (
-            <>
-              {resume.education.map((education) => (
-                <Education key={education._id} education={education} />
-              ))}
-            </>
-          ) : (
-            <h4> No education credentials</h4>
-          )}
         </>
       ) : (
         <>
