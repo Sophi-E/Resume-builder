@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import styled from "@emotion/styled";
+
 import PropTypes from "prop-types";
 import { setAlert } from "../../actions/alert";
 import { register } from "../../actions/auth";
@@ -35,7 +37,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   }
 
   return (
-    <>
+    <StyledWrapper>
       <form onSubmit={onSubmit}>
         <Input
           label="Name"
@@ -71,7 +73,10 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         />
         <button type="submit">Register</button>
       </form>
-    </>
+      <p>
+        Already have an account? <Link to="login">Log In</Link>
+      </p>
+    </StyledWrapper>
   );
 };
 
@@ -86,3 +91,7 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { setAlert, register })(Register);
+
+const StyledWrapper = styled.div`
+  padding: 2em 4em;
+`;
