@@ -93,5 +93,5 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, { setAlert, register })(Register);
 
 const StyledWrapper = styled.div`
-  padding: 2em 4em;
+  padding: 2em 10em;
 `;
