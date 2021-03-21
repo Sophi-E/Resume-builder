@@ -5,7 +5,6 @@ import Navbar from "./Navbar";
 const ResumeUi = () => {
   return (
     <>
-      <Navbar />
       <StyledContainer>
         <div className="header-container">
           <p className="name">John doe</p>

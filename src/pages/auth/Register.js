@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 import { setAlert } from "../../actions/alert";
 import { register } from "../../actions/auth";
 import Input from "../../components/Input";
+import StyledWrapperDiv from "../../components/StyledWrapper";
 
 const initialState = {
   name: "",
@@ -37,7 +38,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   }
 
   return (
-    <StyledWrapper>
+    <StyledWrapperDiv>
       <form onSubmit={onSubmit}>
         <Input
           label="Name"
@@ -76,7 +77,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
       <p>
         Already have an account? <Link to="login">Log In</Link>
       </p>
-    </StyledWrapper>
+    </StyledWrapperDiv>
   );
 };
 
@@ -91,7 +92,3 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { setAlert, register })(Register);
-
-const StyledWrapper = styled.div`
-  padding: 2em 10em;
-`;

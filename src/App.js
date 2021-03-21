@@ -31,6 +31,7 @@ const App = () => {
       <Router>
         <div className="App">
           <Alert />
+          <Navbar />
           <Switch>
             <Route exact path="/" component={ResumeUi} />
             <Route exact path="/register" component={Register} />

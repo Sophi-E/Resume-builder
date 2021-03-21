@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from "../../actions/auth";
 import Input from "../../components/Input";
+import StyledWrapperDiv from "../../components/StyledWrapper";
 
 const initialState = {
   email: "",
@@ -29,7 +30,7 @@ const Login = ({ login, isAuthenticated }) => {
   }
 
   return (
-    <>
+    <StyledWrapperDiv>
       <h1 className="large text-primary">Sign In</h1>
       <p className="lead">
         <i className="fas fa-user"></i> Sign Into Your Account
@@ -57,7 +58,7 @@ const Login = ({ login, isAuthenticated }) => {
       <p className="my-1">
         Don't have an account? <Link to="/register">Sign Up</Link>
       </p>
-    </>
+    </StyledWrapperDiv>
   );
 };
 
